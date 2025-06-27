@@ -10,8 +10,8 @@ import PersonalScreen, { Personal } from "@/screens/PersonalScreen";
 import EditPersonalScreen from "../screens/EditPersonalScreen";
 import CreatePersonalScreen from "../screens/CreatePersonalScreen";
 import NutricionistaScreen, { Nutricionista } from "@/screens/NutricionistaScreen";
-import EditNutricionistaScreen from "../screens/EditNutricionistaScreen";
-import CreateNutricionistaScreen from "../screens/CreateNutricionistaScreen";
+import EditNutricionistaScreen from "@/screens/EditNutricionistaScreen";
+import CreateNutricionistaScreen from "@/screens/CreateNutricionistaScreen";
 
 
 export type DrawerParamList = {
