@@ -21,9 +21,10 @@ import EditContaScreen from '@/screens/EditContaScreen';
 import DietaScreen, { Dieta } from '@/screens/DietaScreen';
 import CreateDietaScreen from '@/screens/CreateDietaScreen';
 import EditDietaScreen from '@/screens/EditDietaScreen';
-import ServicoExtraScreen, { Dieta } from '@/screens/ServicoExtraScreen';
+import ServicoExtraScreen, { ServicoExtra } from '@/screens/ServicoExtraScreen';
 import CreateServicoExtraScreen from '@/screens/CreateServicoExtraScreen';
 import EditServicoExtraScreen from '@/screens/EditServicoExtraScreen';
+
 
 
 
@@ -175,7 +176,7 @@ const DrawerNavigator = () => {
       />
        <Drawer.Screen
         name="CreateServicoExtra"
-        component={ServicoExtraScreen}
+        component={CreateServicoExtraScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'CreateServicoExtra' }}
       />
        <Drawer.Screen
