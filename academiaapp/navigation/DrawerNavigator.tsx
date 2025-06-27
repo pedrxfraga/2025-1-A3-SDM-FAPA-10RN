@@ -14,13 +14,17 @@ import EditNutricionistaScreen from "@/screens/EditNutricionistaScreen";
 import CreateNutricionistaScreen from "@/screens/CreateNutricionistaScreen";
 import TreinoScreen, { Treino } from '../screens/TreinoScreen' ;
 import EditTreinoScreen from '@/screens/EditTreinoScreen';
+import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
 import ContaScreen, { Conta } from '@/screens/ContaScreen';
 import CreateContaScreen from '@/screens/CreateContaScreen';
 import EditContaScreen from '@/screens/EditContaScreen';
 import DietaScreen, { Dieta } from '@/screens/DietaScreen';
 import CreateDietaScreen from '@/screens/CreateDietaScreen';
 import EditDietaScreen from '@/screens/EditDietaScreen';
-import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
+import ServicoExtraScreen, { Dieta } from '@/screens/ServicoExtraScreen';
+import CreateServicoExtraScreen from '@/screens/CreateServicoExtraScreen';
+import EditServicoExtraScreen from '@/screens/EditServicoExtraScreen';
+
 
 
 export type DrawerParamList = {
@@ -43,6 +47,9 @@ export type DrawerParamList = {
   Dieta: undefined;
   CreateDieta: undefined;
   EditDieta: { dieta : Dieta };
+  ServicoExtra: undefined;
+  CreateServicoExtra: undefined;
+  EditServicoExtra: { servicoExtra : ServicoExtra };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -160,6 +167,21 @@ const DrawerNavigator = () => {
         name="EditDieta"
         component={EditDietaScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'EditDieta' }}
+      />
+      <Drawer.Screen
+        name="ServicoExtra"
+        component={ServicoExtraScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'ServicoExtra' }}
+      />
+       <Drawer.Screen
+        name="CreateServicoExtra"
+        component={ServicoExtraScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateServicoExtra' }}
+      />
+       <Drawer.Screen
+        name="EditServicoExtra"
+        component={EditServicoExtraScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'EditServicoExtra' }}
       />
       
         
