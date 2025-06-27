@@ -14,9 +14,10 @@ import EditNutricionistaScreen from "@/screens/EditNutricionistaScreen";
 import CreateNutricionistaScreen from "@/screens/CreateNutricionistaScreen";
 import TreinoScreen, { Treino } from '../screens/TreinoScreen' ;
 import EditTreinoScreen from '@/screens/EditTreinoScreen';
-import ContaScreen from '@/screens/ContaScreen';
+import ContaScreen, { Conta } from '@/screens/ContaScreen';
 import CreateContaScreen from '@/screens/CreateContaScreen';
 import EditContaScreen from '@/screens/EditContaScreen';
+import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
 
 
 export type DrawerParamList = {
