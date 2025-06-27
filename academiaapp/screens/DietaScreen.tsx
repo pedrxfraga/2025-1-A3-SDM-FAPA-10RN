@@ -11,7 +11,7 @@ export type Dieta = {
   id: number;
   nome: string;
   calorias: number;
-  alimento: string; // pode ser string por enquanto
+  alimento: string; 
 };
 
 const DietaScreen = ({ navigation }: Props) => {

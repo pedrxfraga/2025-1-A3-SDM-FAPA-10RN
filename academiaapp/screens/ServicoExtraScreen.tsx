@@ -1,4 +1,4 @@
-// ServicosExtraScreen.tsx
+
 import { Ionicons } from '@expo/vector-icons';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { useFocusEffect } from 'expo-router';
@@ -10,11 +10,11 @@ type Props = DrawerScreenProps<DrawerParamList, 'ServicoExtra'>;
 
 export type ServicoExtra = {
   id: number;
-  cliente: string;       // poderia ser ID, mas aqui simplificado
-  profissional: string;  // personal, nutricionista, etc.
-  servico: string;       // nome do serviço
+  cliente: string;       
+  profissional: string;  
+  servico: string;       
   valor: number;
-  dataContrato: string;  // data da contratação
+  dataContrato: string;  
 };
 
 const ServicosExtraScreen = ({ navigation }: Props) => {

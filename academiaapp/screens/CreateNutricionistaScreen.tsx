@@ -1,4 +1,3 @@
-// CreateNutricionistaScreen.tsx
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { useFocusEffect } from 'expo-router';
 import React, { useCallback, useState } from 'react';
