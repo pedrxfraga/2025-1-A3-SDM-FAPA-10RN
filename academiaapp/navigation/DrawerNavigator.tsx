@@ -5,14 +5,16 @@ import CustomDrawerContent from '../components/CustomDrawerContent';
 import CategoriesScreen, { Category } from '../screens/CategoriesScreen';
 import CreateCategoryScreen from '../screens/CreateCategoryScreen';
 import EditCategoryScreen from '../screens/EditCategoryScreen';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '@/screens/HomeScreen';
 import PersonalScreen, { Personal } from "@/screens/PersonalScreen";
 import EditPersonalScreen from "../screens/EditPersonalScreen";
 import CreatePersonalScreen from "../screens/CreatePersonalScreen";
 import NutricionistaScreen, { Nutricionista } from "@/screens/NutricionistaScreen";
 import EditNutricionistaScreen from "@/screens/EditNutricionistaScreen";
 import CreateNutricionistaScreen from "@/screens/CreateNutricionistaScreen";
-
+import TreinoScreen, { Treino } from '../screens/TreinoScreen' ;
+import EditTreinoScreen from '@/screens/EditTreinoScreen';
+import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
 
 export type DrawerParamList = {
   Home: undefined;
@@ -25,6 +27,9 @@ export type DrawerParamList = {
   Nutricionista: undefined; 
   CreateNutricionista: undefined;
   EditNutricionista: { nutricionista : Nutricionista };
+  Treino: undefined;
+  CreateTreino: undefined;
+  EditTreino: { treino : Treino };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -97,6 +102,21 @@ const DrawerNavigator = () => {
         name="CreateNutricionista"
         component={CreateNutricionistaScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'Criar categoria' }}
+      />
+      <Drawer.Screen
+        name="Treino"
+        component={TreinoScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Treino' }}
+      />
+      <Drawer.Screen
+        name="CreateTreino"
+        component={CreateTreinoScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateTreino' }}
+      />
+      <Drawer.Screen
+        name="EditTreino"
+        component={EditTreinoScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateTreino' }}
       />
         
     </Drawer.Navigator>  
