@@ -197,7 +197,7 @@ const DrawerNavigator = () => {
         options={{ drawerItemStyle: { display: 'none' }, title: 'Cliente' }}
       />
        <Drawer.Screen
-        name="CreateClienteExtra"
+        name="CreateCliente"
         component={CreateClienteScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'CreateCliente' }}
       />
