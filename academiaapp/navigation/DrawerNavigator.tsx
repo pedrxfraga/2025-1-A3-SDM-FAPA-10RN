@@ -17,6 +17,9 @@ import EditTreinoScreen from '@/screens/EditTreinoScreen';
 import ContaScreen, { Conta } from '@/screens/ContaScreen';
 import CreateContaScreen from '@/screens/CreateContaScreen';
 import EditContaScreen from '@/screens/EditContaScreen';
+import DietaScreen, { Dieta } from '@/screens/DietaScreen';
+import CreateDietaScreen from '@/screens/CreateDietaScreen';
+import EditDietaScreen from '@/screens/EditDietaScreen';
 import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
 
 
@@ -37,6 +40,9 @@ export type DrawerParamList = {
   Conta: undefined;
   CreateConta: undefined;
   EditConta: { conta : Conta };
+  Dieta: undefined;
+  CreateDieta: undefined;
+  EditDieta: { dieta : Dieta };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -139,6 +145,21 @@ const DrawerNavigator = () => {
         name="EditConta"
         component={EditContaScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'EditConta' }}
+      />
+      <Drawer.Screen
+        name="Dieta"
+        component={DietaScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Dieta' }}
+      />
+       <Drawer.Screen
+        name="CreateDieta"
+        component={CreateDietaScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateDieta' }}
+      />
+       <Drawer.Screen
+        name="EditDieta"
+        component={EditDietaScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'EditDieta' }}
       />
       
         

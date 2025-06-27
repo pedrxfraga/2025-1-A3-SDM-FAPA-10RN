@@ -1,52 +1,82 @@
+import { Ionicons } from '@expo/vector-icons';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { useFocusEffect } from 'expo-router';
 import React, { useCallback, useState } from 'react';
-import { ActivityIndicator, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DrawerParamList } from '../navigation/DrawerNavigator';
 
-type Props = DrawerScreenProps<DrawerParamList, 'CreateDieta'>;
+type Props = DrawerScreenProps<DrawerParamList, 'Dieta'>;
 
-const CreateDietaScreen = ({ navigation }: Props) => {
-  const [nome, setNome] = useState('');
-  const [calorias, setCalorias] = useState('');
-  const [alimento, setAlimento] = useState('');
-  const [saving, setSaving] = useState(false);
+export type Dieta = {
+  id: number;
+  nome: string;
+  calorias: number;
+  alimento: string; // pode ser string por enquanto
+};
 
-  useFocusEffect(useCallback(() => {
-    setNome(''); setCalorias(''); setAlimento('');
-  }, []));
+const DietaScreen = ({ navigation }: Props) => {
+  const [dietas, setDietas] = useState<Dieta[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleSave = async () => {
-    setSaving(true);
-    await fetch('http://localhost:8000/dieta/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, calorias: Number(calorias), alimento }),
-    });
-    navigation.navigate('Dieta');
-    setSaving(false);
+  const fetchDietas = async () => {
+    setLoading(true);
+    const response = await fetch('http://localhost:8000/dieta/');
+    const data = await response.json();
+    setDietas(data);
+    setLoading(false);
   };
+
+  useFocusEffect(useCallback(() => { fetchDietas(); }, []));
+
+  const handleDelete = async (id: number) => {
+    await fetch(`http://localhost:8000/dieta/${id}/`, { method: 'DELETE' });
+    setDietas(prev => prev.filter(d => d.id !== id));
+  };
+
+  const renderItem = ({ item }: { item: Dieta }) => (
+    <View style={styles.card}>
+      <Text style={styles.name}>{item.nome}</Text>
+      <Text>Calorias: {item.calorias}</Text>
+      <Text>Alimento: {item.alimento}</Text>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.editButton} onPress={() => navigation.navigate('EditDieta', { dieta: item })}>
+          <Text style={styles.editText}>Editar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.deleteButton} onPress={() => handleDelete(item.id)}>
+          <Text style={styles.editText}>Excluir</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Nova Dieta</Text>
-      <Text style={styles.label}>Nome</Text>
-      <TextInput value={nome} onChangeText={setNome} style={styles.input} />
-      <Text style={styles.label}>Calorias</Text>
-      <TextInput value={calorias} onChangeText={setCalorias} style={styles.input} keyboardType="numeric" />
-      <Text style={styles.label}>Alimento</Text>
-      <TextInput value={alimento} onChangeText={setAlimento} style={styles.input} />
-      {saving ? <ActivityIndicator size="large" color="#4B7BE5" /> : <Button title="Salvar" onPress={handleSave} color="#4B7BE5" />}
-      <Button title="Voltar" onPress={() => navigation.navigate('Dieta')} />
+      <Text style={styles.title}>Dietas</Text>
+      {loading ? <ActivityIndicator size="large" color="#4B7BE5" /> : (
+        <FlatList
+          data={dietas}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderItem}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        />
+      )}
+      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('CreateDieta')}>
+        <Ionicons name="add" size={28} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, backgroundColor: '#fff' },
-  title: { fontSize: 20, fontWeight: 'bold', marginBottom: 12, alignSelf: 'center' },
-  label: { fontWeight: '600', marginTop: 12, marginBottom: 4 },
-  input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 10 },
+  container: { flex: 1, backgroundColor: '#fff', paddingHorizontal: 16, paddingTop: 16 },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 12, color: '#333', alignSelf: 'center' },
+  card: { backgroundColor: '#f0f4ff', padding: 16, borderRadius: 10, marginBottom: 12 },
+  name: { fontSize: 18, fontWeight: '600', color: '#222' },
+  editButton: { backgroundColor: '#4B7BE5', padding: 8, borderRadius: 6, marginRight: 8 },
+  deleteButton: { backgroundColor: '#E54848', padding: 8, borderRadius: 6 },
+  editText: { color: '#fff', fontWeight: '500' },
+  fab: { position: 'absolute', right: 20, bottom: 20, backgroundColor: '#0D47A1', borderRadius: 28, padding: 14 },
+  row: { flexDirection: 'row', marginTop: 8, alignSelf: 'flex-end' },
 });
 
-export default CreateDietaScreen;
+export default DietaScreen;
