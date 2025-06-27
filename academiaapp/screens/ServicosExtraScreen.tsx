@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DrawerParamList } from '../navigation/DrawerNavigator';
 
-type Props = DrawerScreenProps<DrawerParamList, 'ServicosExtra'>;
+type Props = DrawerScreenProps<DrawerParamList, 'ServicoExtra'>;
 
 export type ServicoExtra = {
   id: number;
