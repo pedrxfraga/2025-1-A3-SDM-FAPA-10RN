@@ -24,7 +24,9 @@ import EditDietaScreen from '@/screens/EditDietaScreen';
 import ServicoExtraScreen, { ServicoExtra } from '@/screens/ServicoExtraScreen';
 import CreateServicoExtraScreen from '@/screens/CreateServicoExtraScreen';
 import EditServicoExtraScreen from '@/screens/EditServicoExtraScreen';
-
+import ClienteScreen, { Cliente } from '@/screens/ClienteScreen';
+import CreateClienteScreen from '@/screens/CreateClienteScreen';
+import EditClienteScreen from '@/screens/EditClienteScreen';
 
 
 
@@ -51,6 +53,10 @@ export type DrawerParamList = {
   ServicoExtra: undefined;
   CreateServicoExtra: undefined;
   EditServicoExtra: { servicoExtra : ServicoExtra };
+  Cliente: undefined;
+  CreateCliente: undefined;
+  EditCliente: { cliente : Cliente };
+
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -183,6 +189,22 @@ const DrawerNavigator = () => {
         name="EditServicoExtra"
         component={EditServicoExtraScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'EditServicoExtra' }}
+      />
+      
+      <Drawer.Screen
+        name="Cliente"
+        component={ClienteScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Cliente' }}
+      />
+       <Drawer.Screen
+        name="CreateClienteExtra"
+        component={CreateClienteScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateCliente' }}
+      />
+       <Drawer.Screen
+        name="EditCliente"
+        component={EditClienteScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'EditCliente' }}
       />
       
         
