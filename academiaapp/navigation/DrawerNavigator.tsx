@@ -9,7 +9,9 @@ import HomeScreen from '../screens/HomeScreen';
 import PersonalScreen, { Personal } from "@/screens/PersonalScreen";
 import EditPersonalScreen from "../screens/EditPersonalScreen";
 import CreatePersonalScreen from "../screens/CreatePersonalScreen";
-
+import NutricionistaScreen, { Nutricionista } from "@/screens/NutricionistaScreen";
+import EditNutricionistaScreen from "../screens/EditNutricionistaScreen";
+import CreateNutricionistaScreen from "../screens/CreateNutricionistaScreen";
 
 
 export type DrawerParamList = {
@@ -20,6 +22,9 @@ export type DrawerParamList = {
   Personal: undefined; 
   EditPersonal:{ personal : Personal };
   CreatePersonal:undefined; 
+  Nutricionista: undefined; 
+  CreateNutricionista: undefined;
+  EditNutricionista: { nutricionista : Nutricionista };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -76,6 +81,21 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="CreatePersonal"
         component={CreatePersonalScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Criar categoria' }}
+      />
+      <Drawer.Screen
+        name="Nutricionista"
+        component={NutricionistaScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Nutricionista' }}
+      />
+      <Drawer.Screen
+        name="EditNutricionista"
+        component={EditNutricionistaScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Editar categoria' }}
+      />
+      <Drawer.Screen
+        name="CreateNutricionista"
+        component={CreateNutricionistaScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'Criar categoria' }}
       />
         
