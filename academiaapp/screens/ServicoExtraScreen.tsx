@@ -50,7 +50,7 @@ const ServicosExtraScreen = ({ navigation }: Props) => {
       <View style={styles.row}>
         <TouchableOpacity
           style={styles.editButton}
-          onPress={() => navigation.navigate('EditServicoExtra', { servicoExtra: item })}
+          onPress={() => navigation.navigate('EditServicoExtra', { servicoExtra: item})}
         >
           <Text style={styles.editText}>Editar</Text>
         </TouchableOpacity>

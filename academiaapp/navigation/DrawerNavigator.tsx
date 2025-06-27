@@ -22,7 +22,7 @@ import DietaScreen, { Dieta } from '@/screens/DietaScreen';
 import CreateDietaScreen from '@/screens/CreateDietaScreen';
 import EditDietaScreen from '@/screens/EditDietaScreen';
 import ServicoExtraScreen, { ServicoExtra } from '@/screens/ServicoExtraScreen';
-import CreateServicoExtraScreen from '@/screens/CreateServicoExtraScreen';
+import CreateServicoExtraScreen from '@/screens/CreateServicoExtra';
 import EditServicoExtraScreen from '@/screens/EditServicoExtraScreen';
 import ClienteScreen, { Cliente } from '@/screens/ClienteScreen';
 import CreateClienteScreen from '@/screens/CreateClienteScreen';
