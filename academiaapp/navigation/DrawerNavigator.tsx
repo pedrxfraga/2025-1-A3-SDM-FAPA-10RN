@@ -12,7 +12,9 @@ import CreatePersonalScreen from "../screens/CreatePersonalScreen";
 import NutricionistaScreen, { Nutricionista } from "@/screens/NutricionistaScreen";
 import EditNutricionistaScreen from "@/screens/EditNutricionistaScreen";
 import CreateNutricionistaScreen from "@/screens/CreateNutricionistaScreen";
-import TreinoScreen from '../screens/TreinoScreen' ;
+import TreinoScreen, { Treino } from '../screens/TreinoScreen' ;
+import EditTreinoScreen from '@/screens/EditTreinoScreen';
+import CreateTreinoScreen from '@/screens/CreateTreinoScreen';
 
 export type DrawerParamList = {
   Home: undefined;
@@ -26,6 +28,8 @@ export type DrawerParamList = {
   CreateNutricionista: undefined;
   EditNutricionista: { nutricionista : Nutricionista };
   Treino: undefined;
+  CreateTreino: undefined;
+  EditTreino: { treino : Treino };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -103,6 +107,16 @@ const DrawerNavigator = () => {
         name="Treino"
         component={TreinoScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'Treino' }}
+      />
+      <Drawer.Screen
+        name="CreateTreino"
+        component={CreateTreinoScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateTreino' }}
+      />
+      <Drawer.Screen
+        name="EditTreino"
+        component={EditTreinoScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'CreateTreino' }}
       />
         
     </Drawer.Navigator>  
