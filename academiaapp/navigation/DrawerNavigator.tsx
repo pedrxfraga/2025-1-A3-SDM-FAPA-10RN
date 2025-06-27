@@ -6,6 +6,10 @@ import CategoriesScreen, { Category } from '../screens/CategoriesScreen';
 import CreateCategoryScreen from '../screens/CreateCategoryScreen';
 import EditCategoryScreen from '../screens/EditCategoryScreen';
 import HomeScreen from '../screens/HomeScreen';
+import PersonalScreen, { Personal } from "@/screens/PersonalScreen";
+import EditPersonalScreen from "../screens/EditPersonalScreen";
+import CreatePersonalScreen from "../screens/CreatePersonalScreen";
+
 
 
 export type DrawerParamList = {
@@ -13,8 +17,9 @@ export type DrawerParamList = {
   Categories: undefined;
   CreateCategory: undefined; 
   EditCategory: { category: Category };
-  Products: undefined;
-  Socialnetworks: undefined;  
+  Personal: undefined; 
+  EditPersonal:{ personal : Personal };
+  CreatePersonal:undefined; 
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -57,6 +62,21 @@ const DrawerNavigator = () => {
         name="EditCategory"
         component={EditCategoryScreen}
         options={{ drawerItemStyle: { display: 'none' }, title: 'Editar categoria' }}
+      />
+      <Drawer.Screen
+        name="Personal"
+        component={PersonalScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Personal' }}
+      />
+      <Drawer.Screen
+        name="EditPersonal"
+        component={EditPersonalScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Editar categoria' }}
+      />
+      <Drawer.Screen
+        name="CreatePersonal"
+        component={CreatePersonalScreen}
+        options={{ drawerItemStyle: { display: 'none' }, title: 'Criar categoria' }}
       />
         
     </Drawer.Navigator>  
